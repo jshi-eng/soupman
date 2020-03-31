@@ -1,0 +1,3 @@
+SELECT d.Name AS Department, e.Name AS Employee, MAX(e.Salary) FROM Department AS d
+LEFT JOIN Employee AS e ON d.Id = e.DepartmentId
+GROUP BY e.DepartmentID
