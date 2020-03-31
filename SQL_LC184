@@ -1,3 +1,4 @@
-SELECT d.Name AS Department, e.Name AS Employee, MAX(e.Salary) FROM Department AS d
-LEFT JOIN Employee AS e ON d.Id = e.DepartmentId
-GROUP BY e.DepartmentID
+SELECT d.Name AS Department, e.Name AS Employee, e.Salary
+FROM Department AS d, Employee AS e
+WHERE d.Id = e.DepartmentId
+AND e.Salary = (SELECT MAX(Salary) FROM Employee AS t WHERE t.DepartmentId = e.DepartmentId)
