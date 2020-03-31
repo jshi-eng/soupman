@@ -1,1 +1,5 @@
-
+SELECT question_id AS survey_log FROM
+(SELECT question_id,
+        SUM(IF(action='answer',1,0)) AS num_ans,
+        SUM(IF(action='show',1,0)) AS num_sh) AS r
+ORDER BY (r.num_ans/r.num_sh) DESC LIMIT 1
