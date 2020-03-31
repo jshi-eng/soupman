@@ -1,0 +1,8 @@
+SELECT e.Name From Employee AS e
+JOIN Employee AS m ON e.Id = m.ManagerId
+GROUP BY e.Name HAVING COUNT(m.Name)>4
+
+OR
+
+SELECT Name FROM Employee
+WHERE Id In (SELECT ManagerId FROM Employee GROUP BY ManagerId HAVING COUNT(*)>4);
