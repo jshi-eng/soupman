@@ -1,0 +1,2 @@
+SELECT w.Id FROM Weather AS w, Weather AS t
+WHERE DATEDIFF(w.RecordDate,t.RecordDate)=1 AND t.Temperature > w.Temperature
